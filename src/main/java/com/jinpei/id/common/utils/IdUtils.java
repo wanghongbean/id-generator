@@ -246,6 +246,7 @@ public class IdUtils {
      * @return 校验码
      */
     public static int getValidationCode(long originId, int maxCode) {
+//        System.out.println("validation max code:"+maxCode);
         String strOriginId = String.valueOf(originId);
         int[] numbers = new int[strOriginId.length()];
         for (int i = 0, length = strOriginId.length(); i < length; i++) {

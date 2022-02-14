@@ -24,6 +24,14 @@ public class ShortCardIdGeneratorTest {
     public void generate() {
         Long id = cardIdGenerator.generate();
         Assert.assertEquals(13, String.valueOf(id).length());
+        String str_43 ="1111111111111111111111111111111111111111111";//43 bit
+        System.out.println(Long.parseLong(str_43,2)+" - "+String.valueOf(Long.parseLong(str_43,2)).length());
+
+        String str_33 ="111111111111111111111111111111111";//33 bit
+        System.out.println(Long.parseLong(str_33,2)+" - "+String.valueOf(Long.parseLong(str_33,2)).length());
+
+        System.out.println(Long.parseLong("11111",2));
+        System.out.println(Long.parseLong("1111",2));
     }
 
     @Test

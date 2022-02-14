@@ -1,6 +1,7 @@
 package com.jinpei.id.generator.base;
 
 import com.jinpei.id.common.utils.IdUtils;
+import com.oracle.tools.packager.Log;
 
 import java.util.Random;
 
@@ -26,6 +27,7 @@ public interface CardIdGeneratorable {
      */
     default boolean validateCode(long id, long startTimeStamp, int timeBits, int timeOffset, int validationBits, int maxCode) {
         String bitString = Long.toBinaryString(id);
+//        System.out.println("bit str:"+bitString);
         int bitLength = bitString.length();
         String codeBitString = bitString.substring(bitLength - validationBits);
         int validationCode = Integer.parseInt(codeBitString, 2);
@@ -37,6 +39,7 @@ public interface CardIdGeneratorable {
         long timestamp = Long.parseLong(bitString.substring(bitLength - timeOffset - timeBits, bitLength - timeOffset), 2);
         long currentStamp = System.currentTimeMillis() / 1000 - startTimeStamp;
         long timeDelta = currentStamp - timestamp;
+//        System.out.println("timestamp:"+timestamp +" currentStamp:"+currentStamp+" timeDelta:"+timeDelta);
         return timeDelta > -3600;
     }
 
@@ -46,6 +49,6 @@ public interface CardIdGeneratorable {
      * @return sequence起始数
      */
     default long randomSequence() {
-        return RANDOM.nextInt(10);
+        return RANDOM.nextInt(5);
     }
 }
