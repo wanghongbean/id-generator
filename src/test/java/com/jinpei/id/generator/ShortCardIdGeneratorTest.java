@@ -69,7 +69,7 @@ public class ShortCardIdGeneratorTest {
         Random random = new Random();
         for (int i = 0; i < num; i++) {
             StringBuilder sb = new StringBuilder();
-            for (int j = 0; j < 16; j++) {
+            for (int j = 0; j < 14; j++) {
                 sb.append(random.nextInt(100) / 10);
             }
 
